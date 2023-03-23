@@ -1,9 +1,9 @@
 import { galleryItems } from "./gallery-items.js";
 
-const basicLightBox = window.basicLightBox;
+const basicLightbox = window.basicLightbox;
 
 
-const galleryContainer = document.querySelector(".gallery");
+const galleryEll = document.querySelector(".gallery");
 
 function createGalleryCardsMarkup(items) {
   return items
@@ -31,16 +31,13 @@ function handleGalleryClick(event) {
   }
 
   const modalImg = event.target.dataset.source;
-  const instance = basicLightBox.create(`
+  const instance = basicLightbox.create(`
       <img src="${modalImg}" alt="" width="800" height="600">
     `);
   instance.show();
   console.log(modalImg)
 }
-
+galleryEll.addEventListener("click", handleGalleryClick);
 const galleryCardsMarkup = createGalleryCardsMarkup(galleryItems);
-galleryContainer.insertAdjacentHTML("beforeend", galleryCardsMarkup);
-galleryContainer.addEventListener("click", handleGalleryClick);
-
-
+galleryEll.insertAdjacentHTML("beforeend", galleryCardsMarkup);
 
